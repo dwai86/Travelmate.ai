@@ -35,6 +35,7 @@ def hotel_formatter(state: TravelState) -> dict:
 You are a hotel research formatter.
 
 Convert the following hotel research into structured information.
+Try to capture the recommended Hotel names and their descriptions, suitability, and considerations.
 
 Do not invent information.
 

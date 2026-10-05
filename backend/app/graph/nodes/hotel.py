@@ -25,8 +25,7 @@ def hotel_researcher(state: TravelState) -> dict:
     preferences = state.get("preferences", [])
 
     prompt = f"""
-You are a hotel research agent.
-
+You are only a hotel research agent.
 Find suitable accommodation options for the trip.
 
 Destination:
@@ -38,7 +37,7 @@ Dates:
 Travelers:
 {adults} adults and {children} children
 
-Total trip budget:
+Total trip budget (in INR):
 {budget}
 
 Preferences:
@@ -47,11 +46,22 @@ Preferences:
 Search for suitable family-friendly hotels or accommodations
 in {destination}.
 
-Consider:
+You MUST NOT:
+- create an itinerary
+- research flights
+- research trains
+- research attractions
+- create a travel guide
+- create packing lists
+- provide general travel advice
+
+Return concise research only.
+
+Focus on the following aspects of accommodation:
 - location
-- family suitability
+- suitability as per budget and preferences
 - proximity to important attractions
-- vegetarian-friendly surroundings where relevant
+- vegetarian/ non-vegetarian friendly surroundings where relevant
 - approximate price information if available
 - suitability for the overall budget
 
@@ -62,6 +72,8 @@ If information is unavailable, say so.
 
 Provide enough information for another agent to select
 appropriate accommodation.
+
+
 """
 
     messages = state.get("hotel_messages", [])

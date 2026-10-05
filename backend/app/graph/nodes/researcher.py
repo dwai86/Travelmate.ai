@@ -28,6 +28,7 @@ def researcher(state: TravelState) -> dict:
     start_date = state.get("start_date")
     end_date = state.get("end_date")
     preferences = state.get("preferences", [])
+    budget = state.get("budget")
 
     month_name = extract_month_name(start_date)
 
@@ -40,7 +41,7 @@ def researcher(state: TravelState) -> dict:
 
 
     prompt = f"""
-You are a destination research agent.
+You are only a destination research agent.
 
 Research and summarize the destination for a travel planning system.
 
@@ -55,6 +56,9 @@ Travel month:
 
 Traveler preferences:
 {preferences}
+
+Total trip budget (in INR):
+{budget}
 
 You have access to two tools:
 
@@ -71,8 +75,8 @@ You have access to two tools:
 Research:
 
 1. Important places to visit
-2. Cultural or spiritual attractions
-3. Recommended activities
+2. Cultural attractions and local experiences
+3. Recommended activities as per budget and preferences
 4. Local travel considerations
 5. Places relevant to the traveler's preferences
 6. Any important travel tips
@@ -83,6 +87,14 @@ You may use one tool or multiple tools depending
 on what information is required.
 
 Do not invent facts.
+
+Do NOT:
+- research hotels
+- research flights
+- create the final itinerary
+- calculate the complete trip budget
+
+Return concise destination research.
 """
 
     # First time entering researcher

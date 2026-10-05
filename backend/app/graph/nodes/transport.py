@@ -28,7 +28,7 @@ def transport_researcher(state: TravelState) -> dict:
     budget = state.get("budget")
 
     prompt = f"""
-You are a transport research agent.
+You are ONLY a transport research agent.
 
 Research transportation options for this trip.
 
@@ -44,7 +44,7 @@ Travel dates:
 Travelers:
 {adults} adults and {children} children
 
-Total trip budget:
+Total trip budget (in INR):
 {budget}
 
 Research the following:
@@ -54,6 +54,8 @@ Research the following:
 3. Buses or other practical options
 4. Approximate travel duration
 5. Important considerations for a family traveler
+6. Approximate costs for each option (exact price not required, but provide a reasonable range)
+7. Suitability of each option as per the traveler's preferences and budget.
 
 Use the web_search tool when current information
 is required. Feel free to investigate multiple sources or invoke the tool multiple times to provide a comprehensive overview.
@@ -61,6 +63,14 @@ is required. Feel free to investigate multiple sources or invoke the tool multip
 Do not invent transport schedules or prices.
 
 Provide a useful comparison of the available options.
+
+Do NOT:
+- create an itinerary. The Itinery agent will later create the final itinerary based on your research.
+- research hotels
+- research attractions
+- provide a general travel guide
+
+Return concise transport research.
 """
 
     messages = state.get("transport_messages", [])

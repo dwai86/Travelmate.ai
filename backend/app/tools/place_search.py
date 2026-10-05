@@ -38,7 +38,7 @@ def place_search(location: str, query: str) -> str:
                 results.append({
                     "title": result.get("title"),
                     "url": result.get("href"),
-                    "description": result.get("body")
+                    "description":  (result.get("body") or "")[:500]
                 })
 
     except Exception as e:

@@ -69,6 +69,7 @@ class TransportOption(BaseModel):
     mode: str
     description: str
     duration: Optional[str] = None
+    cost: Optional[float] = None
     suitability: str
 
 
@@ -76,6 +77,7 @@ class TransportResearch(BaseModel):
     options: List[TransportOption]
     recommendation: str
     considerations: List[str]
+    cost_estimates: Optional[str] = None
 
 
 class ItineraryDay(BaseModel):

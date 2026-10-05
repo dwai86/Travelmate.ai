@@ -59,8 +59,12 @@ Extract:
 3. Suitability for the travelers
 4. Overall recommendation
 5. Important considerations
+6. Approximate costs for each option
 
-Do not invent information.
+Do NOT:
+- create an itinerary. The Itinery agent will later create the final itinerary based on your research.
+
+Do not invent information. Use only the information provided in the research text.
 
 Transport research:
 
