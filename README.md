@@ -1,2 +1,5 @@
-# Travelmate.ai
-TravelMate AI is an AI travel planning agent that takes a user's natural-language travel request and autonomously builds, validates, and refines a complete travel plan. This Project has been implemented using LANGGRAPH.
+# TravelMate.ai
+
+TravelMate AI is an **agentic AI travel planning system** that takes a user's natural-language travel request and orchestrates multiple AI agents to research, plan, validate, and refine a complete travel itinerary.
+
+Built using **LangGraph**, the project demonstrates stateful agent workflows, tool calling, conditional routing, parallel execution, human-in-the-loop interaction, and structured LLM outputs.
